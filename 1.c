@@ -46,14 +46,14 @@ SDL_Window 	*window = NULL;
 window = SDL_CreateWindow("SDL2/OpenGL/Nanovg", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 1024, 800,
 SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE | SDL_WINDOW_SHOWN | SDL_WINDOW_ALLOW_HIGHDPI);//only SDL_WINDOW_OPENGL may suffice
 if (!window){
-SDL_Log("fallback");
-SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS, 0);
-SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, 0);
-window = SDL_CreateWindow("SDL2/OpenGL/Nanovg", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 1024, 800,
-	SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE | SDL_WINDOW_SHOWN | SDL_WINDOW_ALLOW_HIGHDPI);//same as above
-	if (!window){
-		return EXIT_FAILURE;
-	}
+	SDL_Log("fallback");
+	SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS, 0);
+	SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, 0);
+	window = SDL_CreateWindow("SDL2/OpenGL/Nanovg", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 1024, 800,
+		SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE | SDL_WINDOW_SHOWN | SDL_WINDOW_ALLOW_HIGHDPI);//same as above
+		if (!window){
+			return EXIT_FAILURE;
+		}
 }
 
 context = SDL_GL_CreateContext(window);
@@ -124,7 +124,6 @@ while (running){
 		nvgRect(vg, 300,100, 120,30);
 		nvgFillColor(vg, nvgRGBA(255,192,0,255));
 		nvgFill(vg);
-		
 	nvgEndFrame(vg);
 
 	SDL_GL_SwapWindow(window);
